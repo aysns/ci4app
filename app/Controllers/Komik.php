@@ -35,7 +35,10 @@ class Komik extends BaseController
 
   public function detail($slug)
   {
-    $komik = $this->komikModel->where(['slug' => $slug])->first();
-    dd($komik);
+    $data = [
+      'title' => 'Detail Komik',
+      'komik' => $this->komikModel->getKomik($slug)
+    ];
+    return view('komik/detail',$data);
   }
 }
