@@ -39,6 +39,26 @@ class Komik extends BaseController
       'title' => 'Detail Komik',
       'komik' => $this->komikModel->getKomik($slug)
     ];
+
+    //jika komik tidak ada di tabel
+    if(empty($data['komik'])) {
+      throw new \CodeIgniter\Exceptions\PageNotFoundException('judul komik ' . $slug . ' tidak ditemukan.');
+    }
+
+
     return view('komik/detail',$data);
+  }
+
+  public function create()
+  {
+    $data = [
+      'title' => 'Form Tambah Data Komik',
+    ];
+    return view('komik/create', $data);
+  }
+
+  public function save()
+  {
+   dd($this->request->getVar());
   }
 }

@@ -5,6 +5,7 @@
   <div class="row">
     <div class="col">
       <h2 class="judul">Daftar Komik</h2>
+      <a href="/komik/create" class="btn btn-primary mb-3">Tambah Data Komik</a>
       <table class="table table-striped table-hover">
         <thead>
           <tr>
