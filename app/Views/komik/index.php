@@ -4,9 +4,14 @@
 <div class="container">
   <div class="row">
     <div class="col">
+      <a href="/komik/create" class="btn btn-primary mt-3">Tambah Data Komik</a>
       <h2 class="judul">Daftar Komik</h2>
-      <a href="/komik/create" class="btn btn-primary mb-3">Tambah Data Komik</a>
-      <table class="table table-striped table-hover">
+      <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+          <?= session()->getFlashdata('pesan'); ?> 
+      </div>
+       <?php endif; ?> 
+       <table class="table table-striped table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -16,19 +21,19 @@
           </tr>
         </thead>
         <tbody>
-          <?php $i=1; ?>
-          <?php foreach($komik as $k) : ?>
-          <tr>
-            <th scope="row"><?= $i++; ?></th>
-            <td><img src="/img/<?= $k['sampul']; ?>" alt="" class="foto"></td>
-            <td><?= $k['judul']; ?></td>
-            <td>
-              <a href="/komik/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
-            </td>
-          </tr>
+          <?php $i = 1; ?>
+          <?php foreach ($komik as $k) : ?>
+            <tr>
+              <th scope="row"><?= $i++; ?></th>
+              <td><img src="/img/<?= $k['sampul']; ?>" alt="" class="foto"></td>
+              <td><?= $k['judul']; ?></td>
+              <td>
+                <a href="/komik/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
+              </td>
+            </tr>
           <?php endforeach; ?>
         </tbody>
-      </table>
+        </table>
     </div>
   </div>
 </div>

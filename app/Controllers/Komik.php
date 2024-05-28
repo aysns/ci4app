@@ -59,6 +59,19 @@ class Komik extends BaseController
 
   public function save()
   {
-   dd($this->request->getVar());
+    $slug = url_title($this->request->getVar('judul'), '-', true);
+    $this->komikModel->save([
+      'judul' => $this->request->getVar('judul'),
+      'slug' => $slug,
+      'penulis' => $this->request->getVar('penulis'),
+      'penerbit' => $this->request->getVar('penerbit'),
+      'sampul' => $this->request->getVar('sampul')
+    ]);
+
+    //buat flashdata
+    session()->setFlashdata('pesan','Data Berhasil ditambahkan.');
+
+    //balikin ke halaman daftar komik
+    return redirect()->to('/komik');
   }
 }
