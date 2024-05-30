@@ -104,4 +104,10 @@ class Komik extends BaseController
     //balikin ke halaman daftar komik
     return redirect()->to('/komik');
   }
+
+  public function delete($id)
+  {
+    $this->komikModel->delete($id);
+    return redirect()->to('/komik');
+  }
 }

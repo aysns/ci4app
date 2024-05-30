@@ -17,7 +17,7 @@
               <p class="card-text"><small class="text-body-secondary"><b>Penerbit : </b><?= $komik['penerbit']; ?></small></p>
 
               <a href="" class="btn btn-warning">Edit</a>
-              <a href="" class="btn btn-danger">Delete</a>
+              <a href="/komik/delete/<?= $komik['id']; ?>" class="btn btn-danger">Delete</a>
               <br><br>
               <a href="/komik" class="tautan">Kembali ke daftar Komik</a>
             </div>
