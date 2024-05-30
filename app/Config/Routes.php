@@ -9,4 +9,5 @@ use CodeIgniter\Router\RouteCollection;
 $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::index');
 $routes->get('komik/create', 'Komik::create');
-$routes->get('/komik/(:segment)','komik::detail/$1');
+$routes->delete('/komik/(:num)', 'Komik::delete/$1');
+$routes->get('/komik/(:any)','komik::detail/$1');
