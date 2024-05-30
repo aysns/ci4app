@@ -26,3 +26,7 @@
 .tautan{
   text-decoration: none;
 }
+
+.ul-no-dec{
+  list-style-type: none
+}
