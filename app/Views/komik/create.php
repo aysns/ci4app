@@ -21,13 +21,19 @@
         <div class="row mb-3">
           <label for="penulis" class="col-sm-2 col-form-label">Penulis</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="penulis" name="penulis" value="<?= old('penulis'); ?>">
+            <input type="text" class="form-control <?= (session('errors') && array_key_exists('penulis', session('errors'))) ? 'is-invalid' : ''; ?>" id="penulis" name="penulis" value="<?= old('penulis'); ?>">
+            <div class="invalid-feedback">
+              <?= session('errors')['penulis'] ?? '' ?>
+            </div>
           </div>
         </div>
         <div class="row mb-3">
           <label for="penerbit" class="col-sm-2 col-form-label">Penerbit</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="penerbit" name="penerbit" value="<?= old('penerbit'); ?>">
+            <input type="text" class="form-control <?= (session('errors') && array_key_exists('penerbit', session('errors'))) ? 'is-invalid' : ''; ?>" id="penerbit" name="penerbit" value="<?= old('penerbit'); ?>">
+            <div class="invalid-feedback">
+              <?= session('errors')['penulis'] ?? '' ?>
+            </div>
           </div>
         </div>
         <div class="row mb-3">

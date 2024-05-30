@@ -68,6 +68,18 @@ class Komik extends BaseController
           'required' => '{field} komik harus diisi.',
           'is_unique' => '{field} komik sudah terdaftar'
         ]
+      ],
+      'penulis' =>[
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Nama {field} komik harus diisi.',
+        ]
+      ],
+      'penerbit' =>[
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Nama {field} komik harus diisi.',
+        ]
       ]
     ])){
       //tangkap pesan kesalahan ke variabel validation
