@@ -97,14 +97,25 @@ class Komik extends BaseController
 
       return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
     }
-    dd('berhasil');
+    //ambil gambar 
+    $fileSampul = $this->request->getFile('sampul'); 
+
+    //generate nama sampul random
+    $namaSampul = $fileSampul->getRandomName();
+
+    //pindahkan file ke folder img
+    $fileSampul->move('img',$namaSampul);
+
+    //ambil nama file sampul
+    //$namaSampul = $fileSampul->getName();
+
     $slug = url_title($this->request->getVar('judul'), '-', true);
     $this->komikModel->save([
       'judul' => $this->request->getVar('judul'),
       'slug' => $slug,
       'penulis' => $this->request->getVar('penulis'),
       'penerbit' => $this->request->getVar('penerbit'),
-      'sampul' => $this->request->getVar('sampul')
+      'sampul' => $namaSampul
     ]);
 
     //buat flashdata
