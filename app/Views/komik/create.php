@@ -7,7 +7,7 @@
     <div class="col">
       <h2 class="judul">Form Tambah Data Komik</h2>
 
-      <form action="/komik/save" method="post">
+      <form action="/komik/save" method="post" enctype="multipart/form-data">
         <?= csrf_field(); ?>
         <div class="row mb-3">
           <label for="judul" class="col-sm-2 col-form-label">Judul</label>
@@ -39,7 +39,13 @@
         <div class="row mb-3">
           <label for="sampul" class="col-sm-2 col-form-label">Sampul</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="sampul" name="sampul" value="<?= old('sampul'); ?>">
+            <div class="mb-3">
+              <input class="form-control <?= (session('errors') && array_key_exists('sampul', session('errors'))) ? 'is-invalid' : ''; ?>" type="file" id="sampul" name="sampul">
+              <div class="invalid-feedback">
+                <?= session('errors')['sampul'] ?? '' ?>
+              </div>
+              <label for="Sampul" class="form-label"></label>
+            </div>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Tambah data</button>
